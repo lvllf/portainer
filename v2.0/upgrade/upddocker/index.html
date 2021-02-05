@@ -4754,7 +4754,7 @@
 </code></pre>
 <p>Those 2 commands will stop and remove the container respectively. Doing this will NOT remove your other applications/containers/etc.</p>
 <p>Now that you have stopped and removed the old version of Portainer, you can run this command</p>
-<pre><code> > docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce</code></pre>
+<pre><code> docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce</code></pre>
 
 <p>That will deploy the newest version of Portainer on your system, using the persistent data and upgrade the DB</p>
 <p>Now you can go to http://your-server-address:9000 and login. You should notice that the bottom left corner looks different than it did before. There is no more update nag and the version is no longer shown next to the Portainer logo.</p>
