@@ -474,15 +474,22 @@
     Using Helm
   </a>
   
-    <nav class="md-nav" aria-label="Using Helm">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-yaml-manifest" class="md-nav__link">
+    Using YAML Manifest
+  </a>
+  
+    <nav class="md-nav" aria-label="Using YAML Manifest">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#method-2" class="md-nav__link">
-    Method 2:
+  <a href="#method-1" class="md-nav__link">
+    Method 1:
   </a>
   
-    <nav class="md-nav" aria-label="Method 2:">
+    <nav class="md-nav" aria-label="Method 1:">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -506,6 +513,59 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#for-loadbalancer" class="md-nav__link">
+    For LoadBalancer
+  </a>
+  
+    <nav class="md-nav" aria-label="For LoadBalancer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-only_1" class="md-nav__link">
+    Agent Only
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-2" class="md-nav__link">
+    Method 2:
+  </a>
+  
+    <nav class="md-nav" aria-label="Method 2:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-nodeport_1" class="md-nav__link">
+    For NodePort
+  </a>
+  
+    <nav class="md-nav" aria-label="For NodePort">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-only_2" class="md-nav__link">
+    Agent Only
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#for-load-balancer" class="md-nav__link">
     For Load Balancer
   </a>
@@ -514,7 +574,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#agent-only_1" class="md-nav__link">
+  <a href="#agent-only_3" class="md-nav__link">
     Agent Only
   </a>
   
@@ -4764,15 +4824,22 @@
     Using Helm
   </a>
   
-    <nav class="md-nav" aria-label="Using Helm">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-yaml-manifest" class="md-nav__link">
+    Using YAML Manifest
+  </a>
+  
+    <nav class="md-nav" aria-label="Using YAML Manifest">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#method-2" class="md-nav__link">
-    Method 2:
+  <a href="#method-1" class="md-nav__link">
+    Method 1:
   </a>
   
-    <nav class="md-nav" aria-label="Method 2:">
+    <nav class="md-nav" aria-label="Method 1:">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4796,6 +4863,59 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#for-loadbalancer" class="md-nav__link">
+    For LoadBalancer
+  </a>
+  
+    <nav class="md-nav" aria-label="For LoadBalancer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-only_1" class="md-nav__link">
+    Agent Only
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-2" class="md-nav__link">
+    Method 2:
+  </a>
+  
+    <nav class="md-nav" aria-label="Method 2:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-nodeport_1" class="md-nav__link">
+    For NodePort
+  </a>
+  
+    <nav class="md-nav" aria-label="For NodePort">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-only_2" class="md-nav__link">
+    Agent Only
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#for-load-balancer" class="md-nav__link">
     For Load Balancer
   </a>
@@ -4804,7 +4924,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#agent-only_1" class="md-nav__link">
+  <a href="#agent-only_3" class="md-nav__link">
     Agent Only
   </a>
   
@@ -4860,82 +4980,47 @@
 <p>Run the command below to upgrade to latest version of Portainer</p>
 <pre><code class="language-shell">helm upgrade -n portainer portainer portainer/portainer --reuse-values
 </code></pre>
-<!-- #### For NodePort
-
-Using the following command, Portainer will run in the port 30777
-
-
-<pre><code class="language-shell">helm upgrade -n portainer portainer portainer/portainer
-</code></pre>
-
-
- Upgrade Kubernetes Deployment
-
-Steps to upgrade Portainer and or Portainer agent deployed into Kubernetes. Upgrade method depends on the original install method used.
-
-## Using Helm
-Add Portianer helm repo running the following, ignore any warning about the repo being there already.
-
-<pre><code class="language-shell">helm repo add portainer https://portainer.github.io/k8s/
-</code></pre>
-
-
-<pre><code class="language-shell">helm repo update
-</code></pre>
-
-
-Run the command below to upgrade to latest version of Portainer
-
-<pre><code class="language-shell">helm upgrade -n portainer portainer portainer/portainer --reuse-values
-</code></pre>
-
-
-## Using YAML Manifest
-
-### Method 1:
-Easiest way to upgrade is to use Portainer UI and use manifest files..
-
-Copy the contents of manifest file from
-
-#### For NodePort
-
-
+<h2 id="using-yaml-manifest">Using YAML Manifest</h2>
+<h3 id="method-1">Method 1:</h3>
+<p>Easiest way to upgrade is to use Portainer UI and use manifest files..</p>
+<p>Copy the contents of manifest file from</p>
+<h4 id="for-nodeport">For NodePort</h4>
 <pre><code class="language-shell">https://raw.githubusercontent.com/portainer/k8s/master/deploy/manifests/portainer/portainer.yaml
 </code></pre>
-
-
-> ##### Agent Only
-> https://raw.githubusercontent.com/portainer/k8s/master/deploy/manifests/agent/portainer-agent-k8s-nodeport.yaml
-
-#### For LoadBalancer
-
+<blockquote>
+<h5 id="agent-only">Agent Only</h5>
+<pre><code>https://raw.githubusercontent.com/portainer/k8s/master/deploy/manifests/agent/portainer-agent-k8s-nodeport.yaml
+</code></pre>
+</blockquote>
+<h4 id="for-loadbalancer">For LoadBalancer</h4>
 <pre><code class="language-shell">https://raw.githubusercontent.com/portainer/k8s/master/deploy/manifests/portainer/portainer-lb.yaml
 </code></pre>
-
-
-> ##### Agent Only
-> https://raw.githubusercontent.com/portainer/k8s/master/deploy/manifests/agent/portainer-agent-k8s-lb.yaml
-
-Login to portainer, in Kubernetes endpoint where portainer is installed go to Applications -->
-<p>Advanced Deployment. Paste the yaml content.</p>
+<blockquote>
+<h5 id="agent-only_1">Agent Only</h5>
+<pre><code>https://raw.githubusercontent.com/portainer/k8s/master/deploy/manifests/agent/portainer-agent-k8s-lb.yaml
+</code></pre>
+</blockquote>
+<p>Login to portainer, in Kubernetes endpoint where portainer is installed go to Applications --&gt; Advanced Deployment. Paste the yaml content.</p>
 <p><img alt="alt Manifest Deployment" src="../assets/k8s-manifest-nodeport.png" title="Manifest Deployment" /></p>
 <p>Paste the yaml content and click Deploy.
 Portainer should come back to a login page in a few seconds.</p>
 <p><img alt="alt Manifest Deployment" src="../assets/k8s-manifest-deploy.png" title="Manifest Deployment" /></p>
 <h3 id="method-2">Method 2:</h3>
-<h4 id="for-nodeport">For NodePort</h4>
+<h4 id="for-nodeport_1">For NodePort</h4>
 <pre><code class="language-shell">kubectl apply -n portainer -f https://raw.githubusercontent.com/portainer/k8s/master/deploy/manifests/portainer/portainer.yaml
 </code></pre>
 <blockquote>
-<h5 id="agent-only">Agent Only</h5>
-<p>kubectl apply -n portainer -f https://raw.githubusercontent.com/portainer/k8s/master/deploy/manifests/agent/portainer-agent-k8s-nodeport.yaml</p>
+<h5 id="agent-only_2">Agent Only</h5>
+<pre><code>kubectl apply -n portainer -f https://raw.githubusercontent.com/portainer/k8s/master/deploy/manifests/agent/portainer-agent-k8s-nodeport.yaml
+</code></pre>
 </blockquote>
 <h4 id="for-load-balancer">For Load Balancer</h4>
 <pre><code class="language-shell">kubectl apply -n portainer -f https://raw.githubusercontent.com/portainer/k8s/master/deploy/manifests/portainer/portainer-lb.yaml
 </code></pre>
 <blockquote>
-<h5 id="agent-only_1">Agent Only</h5>
-<p>kubectl apply -n portainer -f https://raw.githubusercontent.com/portainer/k8s/master/deploy/manifests/agent/portainer-agent-k8s-lb.yaml</p>
+<h5 id="agent-only_3">Agent Only</h5>
+<pre><code>kubectl apply -n portainer -f https://raw.githubusercontent.com/portainer/k8s/master/deploy/manifests/agent/portainer-agent-k8s-lb.yaml
+</code></pre>
 </blockquote>
 <p>Now you can go to portainer url and login. You should notice that the bottom left corner looks different than it did before. There is no more update nag and the version is no longer shown next to the Portainer logo.</p>
 <h2 id="notes">Notes</h2>
