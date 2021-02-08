@@ -5039,6 +5039,28 @@
 <h4 id="for-load-balancer_1">For Load Balancer</h4>
 <pre><code>kubectl apply -n portainer -f https://raw.githubusercontent.com/portainer/k8s/master/deploy/manifests/portainer/portainer-lb.yaml</code></pre>
 
+<hr />
+<p><strong>Note about Persisting Data</strong></p>
+<p>The charts/manifests will create a persistent volume for storing Portainer data, using the default StorageClass.</p>
+<p>In some Kubernetes clusters (microk8s), the default Storage Class simply creates hostPath volumes, which are not explicitly tied to a particular node. In a multi-node cluster, this can create an issue when the pod is terminated and rescheduled on a different node, "leaving" all the persistent data behind and starting the pod with an "empty" volume.</p>
+<p>While this behaviour is inherently a limitation of using hostPath volumes, a suitable workaround is to use add a nodeSelector to the deployment, which effectively "pins" the portainer pod to a particular node.</p>
+<p>The nodeSelector can be added in the following ways:</p>
+<ol>
+<li>
+<p>Edit your own values.yaml and set the value of nodeSelector like this:</p>
+<pre><code>nodeSelector: kubernetes.io/hostname: \&lt;YOUR NODE NAME&gt;
+</code></pre>
+</li>
+<li>
+<p>Explicictly set the target node when deploying/updating the helm chart on the CLI, by including <code>--set nodeSelector.kubernetes.io/hostname=&lt;YOUR NODE NAME&gt;</code></p>
+</li>
+<li>
+<p>If you've deployed Portainer via manifests, without Helm, run the following one-liner to "patch" the deployment, forcing the pod to always be scheduled on the node it's currently running on:</p>
+<pre><code>kubectl patch deployments -n portainer portainer -p '{"spec": {"template": {"spec": {"nodeSelector": {"kubernetes.io/hostname": "'$(kubectl get pods -n portainer -o jsonpath='{ ..nodeName }')'"}}}}}' || (echo Failed to identify current node of portainer pod; exit 1)
+</code></pre>
+</li>
+</ol>
+<hr />
 <h2 id="deploy-portainer-in-docker">Deploy Portainer in Docker</h2>
 <p>Portainer is comprised of two elements, the Portainer Server, and the Portainer Agent. Both elements run as lightweight Docker containers on a Docker engine or within a Swarm cluster. Due to the nature of Docker, there are many possible deployment scenarios, however, we have detailed the most common below. Please use the scenario that matches your configuration.</p>
 <p>Note that the recommended deployment mode when using Swarm is using the Portainer Agent.</p>
