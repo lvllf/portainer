@@ -5005,27 +5005,32 @@
 <pre><code> --set persistence.storageClass=<storage-class-name> </code></pre>
 
 <h3 id="using-helm">Using Helm</h3>
+<p>Ensure you're using at least helm v3.2, which <a href="https://github.com/helm/helm/pull/7648">includes support</a> for the <code>--create-namespace</code> argument.</p>
 <p>First, add the Portainer helm repo running the following:</p>
 <pre><code> helm repo add portainer https://portainer.github.io/k8s/</code></pre>
 <pre><code> helm repo update</code></pre>
 
-<p>Then, create the Portainer namespace in your cluster</p>
-<pre><code> kubectl create namespace portainer</code></pre>
+<!-- Then, create the Portainer namespace in your cluster
+
+<pre><code> kubectl create namespace portainer</code></pre> -->
 
 <h4 id="for-nodeport">For NodePort</h4>
 <p>Using the following command, Portainer will run in the port 30777</p>
-<pre><code> helm install -n portainer portainer portainer/portainer</code></pre>
+<pre><code> helm install --create-namespace -n portainer portainer portainer/portainer</code></pre>
 
 <h4 id="for-load-balancer">For Load Balancer</h4>
 <p>Using the following command, Portainer will run in the port 9000.</p>
-<pre><code> helm install -n portainer portainer portainer/portainer --set service.type=LoadBalancer</code></pre>
+<pre><code> helm install --create-namespace -n portainer portainer portainer/portainer \
+--set service.type=LoadBalancer</code></pre>
 
 <h4 id="for-ingress">For Ingress</h4>
-<pre><code> helm install -n portainer portainer portainer/portainer --set service.type=ClusterIP</code></pre>
+<pre><code> helm install --create-namespace -n portainer portainer portainer/portainer \
+--set service.type=ClusterIP</code></pre>
 
 <h3 id="using-yaml-manifest">Using YAML Manifest</h3>
-<p>First create the Portainer namespace in your cluster</p>
-<pre><code> kubectl create namespace portainer</code></pre>
+<!-- First create the Portainer namespace in your cluster
+
+<pre><code> kubectl create namespace portainer</code></pre> -->
 
 <h4 id="for-nodeport_1">For NodePort</h4>
 <p>Using the following command, Portainer will run in the port 30777</p>
@@ -5056,6 +5061,7 @@
 <p>Run the following command to deploy the Agent in your Docker host.</p>
 <pre><code>docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent</code></pre>
 
+<p>Note: <code>--tlsskipverify</code> has to be present when deploying an agent, since injecting valid, signed certs in the agent is not a supported scenario at present.</p>
 <h3 id="docker-swarm_1">Docker Swarm</h3>
 <p>Deploy Portainer Agent on a remote LINUX Swarm Cluster as a Swarm Service, run this command on a manager node in the remote cluster.</p>
 <p>First create the network:</p>
@@ -5064,6 +5070,7 @@
 <p>The following step is deploy the Agent:</p>
 <pre><code> docker service create --name portainer_agent --network portainer_agent_network --publish mode=host,target=9001,published=9001 -e AGENT_CLUSTER_ADDR=tasks.portainer_agent --mode global --mount type=bind,src=//var/run/docker.sock,dst=/var/run/docker.sock --mount type=bind,src=//var/lib/docker/volumes,dst=/var/lib/docker/volumes --mount type=bind,src=/,dst=/host portainer/agent</code></pre>
 
+<p>Note: <code>--tlsskipverify</code> has to be present when deploy an agent and the certs in the agent is not a supported scenario at this moment.</p>
 <h2 id="notes">Notes</h2>
 <p><a href="https://github.com/portainer/portainer-docs/blob/master/contributing.md">Contribute to these docs</a>.</p>
                 
