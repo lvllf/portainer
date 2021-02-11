@@ -4405,7 +4405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://www.youtube.com/channel/UC7diMJcrULjDseq5yhSUZgg/videos" class="md-nav__link">
+      <a href="https://www.youtube.com/channel/UC7diMJcrULjDseq5yhSUZgg/videos/" target="_blank" class="md-nav__link">
         Videos
       </a>
     </li>
@@ -4675,7 +4675,7 @@
                   </a>
                 
                 
-                <h1><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"/></svg></span> Deploying Portainer BE in Docker Swarm</h1>
+                <h1><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"/></svg></span> Deploying Portainer Business in Docker Swarm</h1>
 <p>Portainer is comprised of two elements, the Portainer Server, and the Portainer Agent. Both elements run as lightweight Docker containers on a Docker engine or within a Swarm cluster. Due to the nature of Docker, there are many possible deployment scenarios, however, we have detailed the most common below. Please use the scenario that matches your configuration.</p>
 <p>Note that the recommended deployment mode when using Swarm is using the Portainer Agent.</p>
 <p>By default, Portainer will expose the UI over the port 9000 and expose a TCP tunnel server over the port 8000. The latter is optional and is only required if you plan to use the Edge compute features with Edge agents.</p>
@@ -4703,7 +4703,7 @@
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Docker Swarm on Windows WSL</label><div class="tabbed-content">
 <div class="admonition abstract">
-<p>Before you can deploy Portainer in Docker Swarm running in Windows, you need to install WSL. <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">Read this guide to know more about WSL/WSL2</a></p>
+<p>Before you can deploy Portainer in Docker Swarm running in Windows, you need to install WSL. <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10" target="_blank">Read this guide to know more about WSL/WSL2</a></p>
 <p>Use the following Docker Swarmcommands to deploy the Portainer Server; note the agent is not needed on standalone hosts, however it does provide additional functionality if used (see portainer and agent scenario below):</p>
 <h3>Portainer Server Deployment</h3>
 <p>Deploying Portainer and the Portainer Agent to manage a Swarm cluster is easy! You can directly deploy Portainer as a service in your Docker cluster. Note that this method will automatically deploy a single instance 
@@ -4771,7 +4771,7 @@ Now, you can navigate to http://localhost:9000 or the IP of the server and start
 </div>
 <p><br></p>
 <h2><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 10h5.5L14 4.5V10M5 3h10l6 6v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5c0-1.11.89-2 2-2m0 9v2h14v-2H5m0 4v2h9v-2H5z"/></svg></span> Notes</h2>
-<p><a href="https://github.com/portainer/portainer-docs/blob/master/contributing.md">Contribute to these docs</a>.</p>
+<p><a href="https://github.com/portainer/portainer-docs/blob/master/contributing.md" target="_blank">Contribute to these docs</a></p>
                 
                   
                 

@@ -4405,7 +4405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://www.youtube.com/channel/UC7diMJcrULjDseq5yhSUZgg/videos" class="md-nav__link">
+      <a href="https://www.youtube.com/channel/UC7diMJcrULjDseq5yhSUZgg/videos/" target="_blank" class="md-nav__link">
         Videos
       </a>
     </li>
@@ -4675,17 +4675,17 @@
                   </a>
                 
                 
-                <h1>Downgrade from Portainer BE to Portainer CE</h1>
-<p>If you have a running instance of Portainer BE and want to downgrade to Portainer CE, follow the instructions below.</p>
+                <h1>Downgrade from Portainer Business to Portainer CE</h1>
+<p>If you have a running instance of Portainer Business and want to downgrade to Portainer CE, follow the instructions below.</p>
 <ol>
-<li>Shutdown the Portainer BE instance</li>
-<li>Backup Portainer BE data</li>
-<li>Downgrade the Portainer BE database</li>
+<li>Shutdown the Portainer Business instance</li>
+<li>Backup Portainer Business data</li>
+<li>Downgrade the Portainer Business database</li>
 <li>Re-deploy a Portainer CE instance</li>
 </ol>
 <h1>On Docker</h1>
-<h2>Shutdown the existing Portainer BE instance</h2>
-<p>Make sure that the Portainer BE instance is stopped before attempting any of the other steps.</p>
+<h2>Shutdown the existing Portainer Business instance</h2>
+<p>Make sure that the Portainer Business instance is stopped before attempting any of the other steps.</p>
 <p>Inside a Docker standalone environment it is as simple as:</p>
 <pre><code> docker stop portainer</code></pre>
 
@@ -4694,16 +4694,16 @@
 
 <h2>Backup your data</h2>
 <p>First make sure to create a copy of the Portainer data volume.</p>
-<p>You can use the following command to backup the data of the Portainer BE instance, you might need to update this command to match the name of your Portainer container:</p>
+<p>You can use the following command to backup the data of the Portainer Business instance, you might need to update this command to match the name of your Portainer container:</p>
 <pre><code> docker run --rm --volumes-from portainer -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar /data</code></pre>
 
-<p>This will create a backup.tar file in your current folder containing the Portainer BE instance data backup.</p>
-<h2>Downgrade the Portainer BE database</h2>
+<p>This will create a backup.tar file in your current folder containing the Portainer Business instance data backup.</p>
+<h2>Downgrade the Portainer Business database</h2>
 <p>Use the following command to downgrade the Portainer database:</p>
 <pre><code> docker run -it --name portainer-database-rollback -v portainer_data:/data portainer/portainer-ee:latest --rollback-to-ce</code></pre>
 
 <h2>Redeploy a Portainer CE instance</h2>
-<p>After downgrading the database, you can now redeploy Portainer CE and re-use the existing Portainer BE data by following our instructions in <a href="/v2.0/deploy/linux">Deploying Portainer</a>.</p>
+<p>After downgrading the database, you can now redeploy Portainer CE and re-use the existing Portainer Business data by following our instructions in <a href="/v2.0/deploy/linux">Deploying Portainer</a>.</p>
 <h1>On Kubernetes</h1>
 <p>Work-in-progress.</p>
                 
