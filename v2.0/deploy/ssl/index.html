@@ -4613,6 +4613,10 @@
 <p>To do so, you can use the following flags <code>--ssl</code>, <code>--sslcert</code> and <code>--sslkey</code>:</p>
 <pre><code>$ docker run -d -p 443:9000 -p 8000:8000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock -v ~/local-certs:/certs -v portainer_data:/data portainer/portainer-ce --ssl --sslcert /certs/portainer.crt --sslkey /certs/portainer.key</code></pre>
 
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Portainer expects the certificate in PEM format.</p>
+</div>
 <p>Now, you can navigate to https://$ip-docker-host</p>
 <h2 id="securing-portainer-using-ssl-with-docker-swarm"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"/></svg></span> Securing Portainer using SSL with Docker Swarm</h2>
 <p>Securing Portainer on Docker Swarm is fairly simple. The following example takes in to asumption that you have an external overlay network and external secrets. If you do not, simply create them:</p>
