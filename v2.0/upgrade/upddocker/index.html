@@ -4618,6 +4618,15 @@
 </code></pre></div>
 <p>That will deploy the newest version of Portainer on your system, using the persistent data and upgrade the DB</p>
 <p>Now you can go to http://your-server-address:9000 and login. You should notice that the bottom left corner looks different than it did before. There is no more update nag and the version is no longer shown next to the Portainer logo.</p>
+<h4 id="upgrading-from-version-1241">Upgrading from Version &lt;1.24.1</h4>
+<p>Upgrades from versions prior to version 1.24.1 require an intermediate upgrade to <code>portainer/portainer:1.24.1</code> prior to upgrading to the current release. Similar to the steps above, we stop and remove the container and run the 1.24.1 release of portainer.</p>
+<p><div class="highlight"><pre><span></span><code>docker stop portainer
+
+docker rm portainer
+
+docker run -d -p <span class="m">8000</span>:8000 -p <span class="m">9000</span>:9000 --name<span class="o">=</span>portainer --restart<span class="o">=</span>always --pull<span class="o">=</span>always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer:1.24.1
+</code></pre></div>
+At this point, you are running version 1.24.1 which can be verified by to http://your-server-address:9000, logging in and confirming the version number in the lower left. To complete the upgrade, perform the steps defined in the previous section.</p>
 <h3 id="agent-only-upgrade">Agent Only Upgrade</h3>
 <p>When upgrading to the latest version of Portainer Agent, use the following commands:</p>
 <div class="highlight"><pre><span></span><code>docker stop portainer_agent
